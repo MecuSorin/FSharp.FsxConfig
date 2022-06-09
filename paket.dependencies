@@ -1,0 +1,30 @@
+version 6.2.1
+source https://api.nuget.org/v3/index.json
+
+group Main
+storage: none
+framework: netstandard2.0, netstandard2.1
+nuget FSharp.Compiler.Service
+    nuget FSharp.Core
+    nuget Thoth.Json.Net
+
+group Test
+framework: netstandard2.0, netstandard2.1, net6.0
+source https://api.nuget.org/v3/index.json
+storage: none
+    nuget FSharp.Core
+    nuget Expecto
+
+group Build
+source https://api.nuget.org/v3/index.json
+framework: netstandard2.1, net6.0
+storage: none
+    nuget FSharp.Core
+    nuget Fake.Core.Target
+    nuget Fake.DotNet.Cli
+    nuget Fake.Core.ReleaseNotes
+    nuget Fake.DotNet.AssemblyInfoFile
+    nuget Fake.DotNet.Paket
+    nuget Fake.DotNet.Testing.Expecto
+    nuget Fake.Tools.Git
+    nuget Fake.Api.GitHub
