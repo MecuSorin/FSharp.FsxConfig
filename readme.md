@@ -48,5 +48,5 @@ dotnet run
 ```
 
 ### Troubleshooting
-- if you got an error like `System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, ...` then adding a reference for Newtonsoft.Json should fix the issue: ```dotnet add package Newtonsoft.Json```
+
 - something is wrong with files location, references, etc. you can see the details of errors in console by enabling verbose messages: ```FSharp.FsxConfig.verbose <- true```

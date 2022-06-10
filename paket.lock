@@ -2,7 +2,6 @@ STORAGE: NONE
 RESTRICTION: || (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (3.7.1)
     FSharp.Compiler.Service (41.0.4)
       FSharp.Core (6.0.4)
       Microsoft.Build.Framework (>= 17.0)
@@ -69,7 +68,6 @@ NUGET
       System.Memory (>= 4.5.4)
       System.Security.AccessControl (>= 5.0)
       System.Security.Principal.Windows (>= 5.0)
-    Newtonsoft.Json (13.0.1)
     runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3)
     runtime.debian.9-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3)
     runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3)
@@ -536,10 +534,6 @@ NUGET
     System.Threading.ThreadPool (4.3)
       System.Runtime (>= 4.3)
       System.Runtime.Handles (>= 4.3)
-    Thoth.Json.Net (8.0)
-      Fable.Core (>= 3.0 < 4.0)
-      FSharp.Core (>= 4.7.2)
-      Newtonsoft.Json (>= 11.0.2)
 
 GROUP Build
 STORAGE: NONE

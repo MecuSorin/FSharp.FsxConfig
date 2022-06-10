@@ -6,7 +6,6 @@ storage: none
 framework: netstandard2.0, netstandard2.1
 nuget FSharp.Compiler.Service
     nuget FSharp.Core
-    nuget Thoth.Json.Net
 
 group Test
 framework: netstandard2.0, netstandard2.1, net6.0
