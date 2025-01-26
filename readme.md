@@ -6,7 +6,8 @@ A simple tool that allows using `fsx` files for configuration. You can have comm
 There is a convention in place for the name of the function that is changing the config in the script file: `changeConfiguration`
 
 ### Limitations
-Doesn't support saving a new configuration at runtime, but there are workarounds. One approach is to use the compiler to generate the code, another one is just to resolve the problem at hand like in this example: Given the context of a ML project that needed some prediction configuration to be saved/reused, my approach was to use this simple code to generate my config at training time, later to load the config from the application that was doing the predictions
+1. Configuration script name should translate in a valid namespace( so avoid funy file names, keep them simple).
+2. Doesn't support saving a new configuration at runtime, but there are workarounds. One approach is to use the compiler to generate the code, another one is just to resolve the problem at hand like in this example: Given the context of a ML project that needed some prediction configuration to be saved/reused, my approach was to use this simple code to generate my config at training time, later to load the config from the application that was doing the predictions
 ```fsharp
 type PredictConfiguration = {
     sequenceLength: int
