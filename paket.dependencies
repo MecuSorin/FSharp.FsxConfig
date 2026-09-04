@@ -1,17 +1,11 @@
 version 6.2.1
 source https://api.nuget.org/v3/index.json
 
-group Main
-storage: none
-framework: netstandard2.0, netstandard2.1
-nuget FSharp.Compiler.Service
-    nuget FSharp.Core
-
 group Test
-framework: netstandard2.0, netstandard2.1, net6.0
+framework: netstandard2.0, netstandard2.1, net10.0
 source https://api.nuget.org/v3/index.json
 storage: none
-    nuget FSharp.Core
+    nuget FSharp.Core 10.1.400
     nuget Expecto
 
 group Build

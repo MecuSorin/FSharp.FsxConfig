@@ -36,7 +36,7 @@ MyConfiguration.Default
 
 Create some 2 script files (check names from above example, and replace your project build output in the #r include):
 ```fsharp
-#r "bin/Debug/net6.0/REPLACE_ME_WITH_YOUR_PROJECT_NAME.dll"
+#r "bin/Debug/net9.0/REPLACE_ME_WITH_YOUR_PROJECT_NAME.dll"
 
 let changeConfiguration (conf: Program.MyConfiguration) =
     // you can have comments, the tooling will let you know if the typing is out of synch

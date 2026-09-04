@@ -2,13 +2,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Multi-targeting older (EOL) TFMs is intentional so consumers on those SDKs stay warning-free. -->
+    <NoWarn>$(NoWarn);NETSDK1138</NoWarn>
+    <!-- FSharp.Compiler.Service pins FSharp.Core to exactly its own version, and each
+         .NET SDK injects the FSharp.Core that matches that SDK. Align the FSharp.Core
+         used to compile this project per TFM so builds (and consumers) stay warning-free. -->
+    <FSharpCoreImplicitPackageVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.403</FSharpCoreImplicitPackageVersion>
+    <FSharpCoreImplicitPackageVersion Condition="'$(TargetFramework)' == 'net9.0'">9.0.303</FSharpCoreImplicitPackageVersion>
+    <FSharpCoreImplicitPackageVersion Condition="'$(TargetFramework)' == 'net10.0'">10.1.400</FSharpCoreImplicitPackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApplicationConfiguration.fs" />
     <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
     <None Include="..\..\license" Pack="true" PackagePath="\" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <!-- Each target framework references the FSharp.Compiler.Service whose pinned
+       FSharp.Core matches that SDK generation, avoiding NU1605/NU1608 for consumers. -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="FSharp.Compiler.Service" Version="43.8.403" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="FSharp.Compiler.Service" Version="43.9.303" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="FSharp.Compiler.Service" Version="43.12.400" />
+  </ItemGroup>
 </Project>
